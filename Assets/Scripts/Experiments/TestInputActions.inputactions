@@ -1,0 +1,52 @@
+{
+    "name": "TestInputActions",
+    "maps": [
+        {
+            "name": "TestMap",
+            "id": "5b4067b7-6010-4244-971d-b3acc0f7c323",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "87f0ab12-da12-4a3a-a990-be05d9690ee2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "6f377692-d879-45ae-8e9a-f4aed81165c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f58a3c66-0cae-4c3a-b617-059eb2b75be4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5641a903-8305-4bff-9ea7-f50fa8323ed7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

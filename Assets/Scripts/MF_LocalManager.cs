@@ -35,7 +35,6 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
 
         _cameraMultiTarget = MF_InfoStation.info.battlingCamera.GetComponent<CameraMultiTarget>();
         instantiateRegisterCommanders();
-        connectInputActionMaps();
 
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
     }
@@ -88,11 +87,6 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
             MF_InfoStation.info.registeredCommanders =
                 new ReadOnlyCollection<MF_InfoStation.RegisteredCommanders>(MF_InfoStation.info.registeredCommandersShowBoard);
         }
-    }
-    
-    void connectInputActionMaps()
-    {
-        //TODO connect InputActionMaps.
     }
 
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)

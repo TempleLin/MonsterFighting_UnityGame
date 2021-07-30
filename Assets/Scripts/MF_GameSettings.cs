@@ -48,12 +48,10 @@ namespace MF_NSettings
         [Serializable]
         public class CommanderSettings
         {
-            //private MF_ECommanderType commanderType;
             public MF_ECommanderType commanderType;
             public MF_EControlType controlType;
 
             public InputActionMap inputActionMap;
-            //public MF_CommanderInputSettings commanderInputSettings;
 
             public CommanderSettings(MF_ECommanderType commanderType, ref MF_EControlType controlType, ref InputActionMap inputActionMap)
             {

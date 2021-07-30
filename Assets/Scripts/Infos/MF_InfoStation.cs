@@ -23,7 +23,7 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
     public List<RegisteredCommanders> registeredCommandersShowBoard;
     public ReadOnlyCollection<RegisteredCommanders> registeredCommanders;
 
-    // Access this component by this variable.
+    // Access this component by this variable. (Similar to Singleton)
     public static MF_InfoStation info;
 
     private string _ICompleteCheck_Identity = "InfoStation";

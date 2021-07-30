@@ -24,11 +24,6 @@ public class PlayerInputControl : MonoBehaviour
         inputActionMap.actions[0].performed += ctx => playerMovement_act(ctx);
     }
 
-    // private void OnEnable()
-    // {
-    //     inputActionMap.Enable();
-    // }
-
     private void OnDisable()
     {
         inputActionMap.Disable();

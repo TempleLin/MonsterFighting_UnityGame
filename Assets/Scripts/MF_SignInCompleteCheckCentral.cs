@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MF_SignInCompleteCheckCentral
 {
-    // Start is called before the first frame update
     private static Dictionary<string, MF_ISignInCompleteCheck> signedInCompleteChecks = new Dictionary<string, MF_ISignInCompleteCheck>();
 
     private static int centralKey = 012;

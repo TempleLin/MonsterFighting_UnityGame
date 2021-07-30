@@ -8,7 +8,7 @@ public class MF_PlayerMovement : MF_PMovement
 {
     public override void move_pas(Vector2 moveValue)
     {
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0) return;
+        if (moveValue == Vector2.zero) return;
 
         Vector3 movement = new Vector3(moveValue.x * moveSpeed, 0, moveValue.y * moveSpeed);
         navMeshAgent.Move(movement);

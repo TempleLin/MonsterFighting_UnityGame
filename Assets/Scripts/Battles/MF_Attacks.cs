@@ -58,26 +58,4 @@ public class MF_Attacks : MF_PBattle, MF_IAttacks
     {
         Debug.Log($"Special affecting {player.ToString()}");
     }
-
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.gameObject.GetComponent<MF_Receives>() is MF_IReceives && receiver == null && other.gameObject != gameObject)
-    //         receiver = other.gameObject.GetComponent<MF_Receives>();
-    // }
-
-    // private void OnCollisionExit(Collision other)
-    // {
-    //     receiver = null;
-    // }
-
-    // private void OnCollisionStay(Collision other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //         Debug.Log("OnCollisionStay");
-    //     //TODO Implement IReceives and optimize this code
-    //     if (Input.GetKeyDown(KeyCode.E) && other.gameObject.CompareTag("Player"))
-    //     {
-    //         receiver.receiveDmg_pas(punch_act());
-    //     }
-    // }
 }

@@ -218,6 +218,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Special",
+                    "type": "Button",
+                    "id": "bced8953-c05c-4db5-931c-d0c55829ba52",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -279,7 +287,7 @@
                 {
                     "name": "",
                     "id": "9e9c2e40-c69f-4493-8a99-51686a7fc547",
-                    "path": "<Keyboard>/numpad1",
+                    "path": "<Keyboard>/numpad4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -290,7 +298,7 @@
                 {
                     "name": "",
                     "id": "900662a9-a4c0-4744-8432-e79dd8b8d25c",
-                    "path": "<Keyboard>/numpad2",
+                    "path": "<Keyboard>/numpad5",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -301,7 +309,7 @@
                 {
                     "name": "",
                     "id": "911ee619-3e91-44ac-9c60-7744d2ed2018",
-                    "path": "<Keyboard>/numpad3",
+                    "path": "<Keyboard>/numpad6",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -312,7 +320,7 @@
                 {
                     "name": "",
                     "id": "d6f28d36-bce7-4f47-a2b8-2a543f37e6f3",
-                    "path": "<Keyboard>/numpad5",
+                    "path": "<Keyboard>/numpad8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -328,6 +336,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc33b80b-0e78-42ac-8540-74dbbf0e73f3",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -231,6 +231,14 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Special"",
+                    ""type"": ""Button"",
+                    ""id"": ""bced8953-c05c-4db5-931c-d0c55829ba52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -292,7 +300,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9e9c2e40-c69f-4493-8a99-51686a7fc547"",
-                    ""path"": ""<Keyboard>/numpad1"",
+                    ""path"": ""<Keyboard>/numpad4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -303,7 +311,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""900662a9-a4c0-4744-8432-e79dd8b8d25c"",
-                    ""path"": ""<Keyboard>/numpad2"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -314,7 +322,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""911ee619-3e91-44ac-9c60-7744d2ed2018"",
-                    ""path"": ""<Keyboard>/numpad3"",
+                    ""path"": ""<Keyboard>/numpad6"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -325,7 +333,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6f28d36-bce7-4f47-a2b8-2a543f37e6f3"",
-                    ""path"": ""<Keyboard>/numpad5"",
+                    ""path"": ""<Keyboard>/numpad8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -341,6 +349,17 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc33b80b-0e78-42ac-8540-74dbbf0e73f3"",
+                    ""path"": ""<Keyboard>/numpad7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Special"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -404,6 +423,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Player2Battle_Block = m_Player2Battle.FindAction("Block", throwIfNotFound: true);
         m_Player2Battle_Ult = m_Player2Battle.FindAction("Ult", throwIfNotFound: true);
         m_Player2Battle_Dash = m_Player2Battle.FindAction("Dash", throwIfNotFound: true);
+        m_Player2Battle_Special = m_Player2Battle.FindAction("Special", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
@@ -535,6 +555,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2Battle_Block;
     private readonly InputAction m_Player2Battle_Ult;
     private readonly InputAction m_Player2Battle_Dash;
+    private readonly InputAction m_Player2Battle_Special;
     public struct Player2BattleActions
     {
         private @PlayerInputs m_Wrapper;
@@ -545,6 +566,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputAction @Block => m_Wrapper.m_Player2Battle_Block;
         public InputAction @Ult => m_Wrapper.m_Player2Battle_Ult;
         public InputAction @Dash => m_Wrapper.m_Player2Battle_Dash;
+        public InputAction @Special => m_Wrapper.m_Player2Battle_Special;
         public InputActionMap Get() { return m_Wrapper.m_Player2Battle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -572,6 +594,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnDash;
+                @Special.started -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnSpecial;
+                @Special.performed -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnSpecial;
+                @Special.canceled -= m_Wrapper.m_Player2BattleActionsCallbackInterface.OnSpecial;
             }
             m_Wrapper.m_Player2BattleActionsCallbackInterface = instance;
             if (instance != null)
@@ -594,6 +619,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @Special.started += instance.OnSpecial;
+                @Special.performed += instance.OnSpecial;
+                @Special.canceled += instance.OnSpecial;
             }
         }
     }
@@ -657,6 +685,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         void OnBlock(InputAction.CallbackContext context);
         void OnUlt(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnSpecial(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

@@ -18,5 +18,5 @@ public abstract class MF_PMovement : MonoBehaviour
         info = GetComponent<MF_CommanderInfo>();
     }
 
-    public abstract void move_pas(Vector2 moveValue);
+    public abstract void move_act(Vector2 moveValue);
 }

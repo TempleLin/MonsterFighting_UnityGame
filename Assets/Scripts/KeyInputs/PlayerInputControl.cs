@@ -15,10 +15,10 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
     public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
     private int centralKey;
     
-    private MF_CommanderInfo commanderInfo;
     [SerializeField] private InputActionMap inputActionMap;
-
+    private MF_CommanderInfo commanderInfo;
     private MF_PlayerMovement playerMovement;
+    private MF_CommanderBattle commanderBattle;
 
     private bool heldKeepMoving = false;
     private Vector2 movementVector;
@@ -29,9 +29,10 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
         _ICompleteCheck_Identity = "PlayerInputControl" + sameTypeIdentityCount.ToString();
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
         
+        inputActionMap = commanderInfo.InputActionMap;
         commanderInfo = GetComponent<MF_CommanderInfo>();
         playerMovement = GetComponent<MF_PlayerMovement>();
-        inputActionMap = commanderInfo.InputActionMap;
+        commanderBattle = GetComponent<MF_CommanderBattle>();
         
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
 
@@ -45,7 +46,7 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
     void Update()
     {
         if (heldKeepMoving)
-            playerMovement.move_pas(movementVector);
+            playerMovement.move_act(movementVector);
     }
 
     private void playerMovement_act(InputAction.CallbackContext ctx)

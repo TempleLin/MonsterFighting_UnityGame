@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MF_Attacks : MF_PBattle, MF_IAttacks
+public class MfCommanderAttacks : MF_CommanderBattle, MF_IAttacks
 {
     //TODO Implement attack status to info.
     private int temp = 0;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MF_Receives : MF_PBattle, MF_IReceives
+public class MfCommanderReceives : MF_CommanderBattle, MF_IReceives
 {
     // Start is called before the first frame update
     void Start()

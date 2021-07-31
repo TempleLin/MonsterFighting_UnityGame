@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MF_PlayerMovement : MF_PMovement
 {
-    public override void move_pas(Vector2 moveValue)
+    public override void move_act(Vector2 moveValue)
     {
         if (moveValue == Vector2.zero) return;
 

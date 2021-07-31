@@ -20,7 +20,6 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
     private MF_PlayerMovement playerMovement;
     private MF_CommanderBattle commanderBattle;
 
-    private bool heldKeepMoving = false;
     private Vector2 movementVector;
 
     private void Start()
@@ -29,7 +28,6 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
         _ICompleteCheck_Identity = "PlayerInputControl" + sameTypeIdentityCount.ToString();
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
         
-        inputActionMap = commanderInfo.InputActionMap;
         commanderInfo = GetComponent<MF_CommanderInfo>();
         playerMovement = GetComponent<MF_PlayerMovement>();
         commanderBattle = GetComponent<MF_CommanderBattle>();
@@ -45,21 +43,18 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
 
     void Update()
     {
-        if (heldKeepMoving)
-            playerMovement.move_act(movementVector);
+        playerMovement.move_act(movementVector);
     }
 
-    private void playerMovement_act(InputAction.CallbackContext ctx)
+    private void playerMovement_Hold(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
-        {
-            heldKeepMoving = true;
-            movementVector = ctx.ReadValue<Vector2>();
-        }
-        else if (ctx.canceled)
-        {
-            heldKeepMoving = false;
-        }
+        Debug.Log($"Moving {ctx.ReadValue<Vector2>()}.");
+        movementVector = ctx.ReadValue<Vector2>();
+    }
+
+    private void playerPunchCombo_press()
+    {
+        commanderBattle.punchCombo_act();
     }
 
 
@@ -68,8 +63,10 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
         // Wait for LocalManager to complete assigning everything to player.
         while (!MF_SignInCompleteCheckCentral.getOtherByIdentity("LocalManager").ICompleteCheck_Completed) {}
 
+        inputActionMap = commanderInfo.InputActionMap;
         inputActionMap.Enable();
-        inputActionMap.actions[0].performed += ctx => playerMovement_act(ctx);
+        inputActionMap.actions[0].performed += ctx => playerMovement_Hold(ctx);
+        inputActionMap.actions[1].performed += _ => playerPunchCombo_press();
         //TODO Add more input controls performed
 
         _ICompleteCheck_Completed = true;

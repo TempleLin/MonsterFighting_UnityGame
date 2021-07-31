@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class MF_CommanderBattle : MonoBehaviour, MF_IAttacks, MF_IReceives
 {
+    [SerializeField] private int punchComboMax = 3;
+    private int punchComboIndex = 0;
+    public int PunchComboIndex => punchComboIndex;
+
+    [SerializeField] private int kickComboMax = 3;
+    private int kickComboIndex = 0;
+    public int KickComboIndex => kickComboIndex;
+    
     //TODO Add all implementations
     
     #region MF_IAttacks
-    public int punch_act()
+    public int punchCombo_act()
     {
+        punchComboIndex = (punchComboIndex >= punchComboMax)? 1 : punchComboIndex + 1;
+        switch (punchComboIndex)
+        {
+            case 1:
+                Debug.Log("Punch Combo 1");
+                break;
+            case 2:
+                Debug.Log("Punch Combo 2");
+                break;
+            case 3:
+                Debug.Log("Punch Combo 3");
+                break;
+        }
         throw new System.NotImplementedException();
     }
 
-    public int kick_act()
+    public int kickCombo_act()
     {
         throw new System.NotImplementedException();
     }

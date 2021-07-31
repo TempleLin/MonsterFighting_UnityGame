@@ -12,13 +12,13 @@ public class MfCommanderAttacks : MF_CommanderBattle, MF_IAttacks
 
     private MF_IReceives receiver = null;
     
-    public int punch_act()
+    public int punchCombo_act()
     {
         Debug.Log("Punch");
         return temp;
     }
 
-    public int kick_act()
+    public int kickCombo_act()
     {
         Debug.Log("Kick");
         return temp + 1;

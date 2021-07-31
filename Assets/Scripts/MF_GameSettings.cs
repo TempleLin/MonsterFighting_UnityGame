@@ -39,7 +39,7 @@ namespace MF_NSettings
 
             MF_EGameType tempGameType = MF_EGameType.LocalPVP;
             MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
-            InputActionMap[] tempInputActionMaps = {tempInputActionAsset.FindActionMap("Player1Battle"), tempInputActionAsset.FindActionMap("Player2Battle")};
+            InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
             //TODO Remove this calling and call it from Commander's active setting.
             receiveGameSettings_pas(ref tempGameType, ref tempControlTypes, ref tempInputActionMaps);
         }

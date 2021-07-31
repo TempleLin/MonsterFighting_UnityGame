@@ -20,11 +20,11 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""d007bf3a-1692-49be-9781-4af6de81b71f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Punch"",
@@ -248,7 +248,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""91f8155b-1813-4183-aade-7dd3d9e8f792"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -259,7 +259,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""22aaff1c-10ad-4c53-b044-cca09a822991"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -270,7 +270,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""9981bb59-e8d7-4141-a03e-54b58221241f"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -281,7 +281,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""f71579ba-ef12-428c-8f40-8bde3e238ab5"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -292,7 +292,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9e9c2e40-c69f-4493-8a99-51686a7fc547"",
-                    ""path"": ""<Keyboard>/j"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -303,7 +303,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""900662a9-a4c0-4744-8432-e79dd8b8d25c"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/numpad2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -314,7 +314,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""911ee619-3e91-44ac-9c60-7744d2ed2018"",
-                    ""path"": ""<Keyboard>/l"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -325,7 +325,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6f28d36-bce7-4f47-a2b8-2a543f37e6f3"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -336,7 +336,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ba34cfe8-0ad5-44ab-bdd6-afa3d2deb703"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/numpadEnter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

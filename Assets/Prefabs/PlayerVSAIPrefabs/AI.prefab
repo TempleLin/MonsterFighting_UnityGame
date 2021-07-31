@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 6845412356627209098}
   - component: {fileID: 5315971769117646763}
   - component: {fileID: 3017080171284968435}
+  - component: {fileID: 6243400482681167948}
   m_Layer: 0
   m_Name: AI
   m_TagString: Player
@@ -240,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56d8f4a57fc37d418d1838e9bc10170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchComboMax: 3
+  kickComboMax: 3
   enemyCollided: 0
 --- !u!114 &6845412356627209098
 MonoBehaviour:
@@ -253,6 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2473e052e5e6a1b48a8e3bc5273a6ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchComboMax: 3
+  kickComboMax: 3
 --- !u!114 &5315971769117646763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +273,12 @@ MonoBehaviour:
   health: 100
   commanderType: 0
   statuses: 
-  inputActionAsset: {fileID: 0}
+  inputActionMap:
+    m_Name: Input
+    m_Id: 3288ecbd-2e1b-4377-b8a8-a6320d6746d2
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
   enemy: {fileID: 0}
 --- !u!136 &3017080171284968435
 CapsuleCollider:
@@ -284,3 +294,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6243400482681167948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5167240950050604723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 1330be0e4d0839645a903b95d9e58e74
+  hasSpawned: 0

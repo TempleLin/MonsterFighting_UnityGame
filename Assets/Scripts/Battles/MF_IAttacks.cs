@@ -6,8 +6,8 @@ public interface MF_IAttacks
 {
     int PunchComboIndex { get; }
     int KickComboIndex { get; }
-    int punchCombo_act();
-    int kickCombo_act();
-    int ultimate_act();
-    void specialAffect_act(GameObject player);
+    int punchCombo_Controlled();
+    int kickCombo_Controlled();
+    int ultimate_Controlled();
+    void specialAffect_Controlled(GameObject player);
 }

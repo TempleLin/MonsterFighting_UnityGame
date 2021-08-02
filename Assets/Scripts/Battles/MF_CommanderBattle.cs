@@ -11,59 +11,45 @@ public class MF_CommanderBattle : MonoBehaviour, MF_IAttacks, MF_IReceives
     [SerializeField] private int kickComboMax = 3;
     private int kickComboIndex = 0;
     public int KickComboIndex => kickComboIndex;
-    
-    //TODO Add all implementations
+
+    private delegate void combos();
+
+    private combos[] punchCombos = new combos[]
+    {
+        delegate() {  },
+        delegate() {  }, 
+        delegate() {  }, 
+    };
+
+    private combos[] kickCombos = new combos[]
+    {
+        delegate() {  },
+        delegate() {  }, 
+        delegate() {  }, 
+    };
+
+        //TODO Add all implementations
     
     #region MF_IAttacks
-    public int punchCombo_act()
+    public int punchCombo_Controlled()
     {
         punchComboIndex = (punchComboIndex >= punchComboMax)? 1 : punchComboIndex + 1;
-        switch (punchComboIndex)
-        {
-            case 1:
-                Debug.Log("Punch Combo 1");
-                break;
-            case 2:
-                Debug.Log("Punch Combo 2");
-                break;
-            case 3:
-                Debug.Log("Punch Combo 3");
-                break;
-        }
+        punchCombos[punchComboIndex]();
         throw new System.NotImplementedException();
     }
 
-    public int kickCombo_act()
+    public int kickCombo_Controlled()
+    {
+        kickComboIndex = (kickComboIndex >= kickComboMax)? 1 : kickComboIndex + 1;
+        punchCombos[kickComboIndex]();
+        throw new System.NotImplementedException();
+    }
+    public int ultimate_Controlled()
     {
         throw new System.NotImplementedException();
     }
 
-    public int punch2_act()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public int punch3_act()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public int kick2_act()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public int kick3_act()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public int ultimate_act()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void specialAffect_act(GameObject player)
+    public void specialAffect_Controlled(GameObject player)
     {
         throw new System.NotImplementedException();
     }

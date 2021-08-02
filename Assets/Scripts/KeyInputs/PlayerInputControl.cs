@@ -43,7 +43,7 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
 
     void Update()
     {
-        playerMovement.move_act(movementVector);
+        playerMovement.move_Controlled(movementVector);
     }
 
     private void playerMovement_Hold(InputAction.CallbackContext ctx)
@@ -54,7 +54,12 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
 
     private void playerPunchCombo_press()
     {
-        commanderBattle.punchCombo_act();
+        commanderBattle.punchCombo_Controlled();
+    }
+
+    private void playerKickCombo_press()
+    {
+        commanderBattle.kickCombo_Controlled();
     }
 
 
@@ -67,6 +72,7 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
         inputActionMap.Enable();
         inputActionMap.actions[0].performed += ctx => playerMovement_Hold(ctx);
         inputActionMap.actions[1].performed += _ => playerPunchCombo_press();
+        inputActionMap.actions[2].performed += _ => playerKickCombo_press();
         //TODO Add more input controls performed
 
         _ICompleteCheck_Completed = true;

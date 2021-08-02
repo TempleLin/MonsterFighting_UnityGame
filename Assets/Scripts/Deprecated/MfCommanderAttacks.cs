@@ -12,13 +12,13 @@ public class MfCommanderAttacks : MF_CommanderBattle, MF_IAttacks
 
     private MF_IReceives receiver = null;
     
-    public int punchCombo_act()
+    public int punchCombo_Controlled()
     {
         Debug.Log("Punch");
         return temp;
     }
 
-    public int kickCombo_act()
+    public int kickCombo_Controlled()
     {
         Debug.Log("Kick");
         return temp + 1;
@@ -48,13 +48,13 @@ public class MfCommanderAttacks : MF_CommanderBattle, MF_IAttacks
         return temp + 4;
     }
 
-    public int ultimate_act()
+    public int ultimate_Controlled()
     {
         Debug.Log("Ultimate");
         return temp + 5;
     }
 
-    public void specialAffect_act(GameObject player)
+    public void specialAffect_Controlled(GameObject player)
     {
         Debug.Log($"Special affecting {player.ToString()}");
     }

@@ -18,6 +18,7 @@ public static class MF_CodeStructure
      */
     
     /*
-     * @"pas" in the end of the method name means it gets called from outside the GameObject. "act" means it gets called by other GameObjects. 
+     * "_Controlled" in the end of method name means it gets called from class that ends with "Control". "pas" means it gets called from other
+     * gameObjects.
      */
 }

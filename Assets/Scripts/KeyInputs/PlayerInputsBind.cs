@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
+public class PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
 {
     private static int sameTypeIdentityCount = 0;
     private string _ICompleteCheck_Identity;
@@ -39,11 +39,6 @@ public class PlayerInputControl : MonoBehaviour, MF_ISignInCompleteCheck
     private void OnDisable()
     {
         inputActionMap.Disable();
-    }
-
-    void Update()
-    {
-        playerMovement.move_Controlled(movementVector);
     }
 
     private void playerMovement_Hold(InputAction.CallbackContext ctx)

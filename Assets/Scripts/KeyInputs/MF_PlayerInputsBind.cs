@@ -22,6 +22,8 @@ public class PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
 
     private Vector2 movementVector;
 
+    private bool playerMovementHeld = false;
+
     private void Start()
     {
         sameTypeIdentityCount++;
@@ -40,11 +42,13 @@ public class PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
     {
         inputActionMap.Disable();
     }
-
+    
     private void playerMovement_Hold(InputAction.CallbackContext ctx)
     {
+        Debug.Log("Hold");
         Debug.Log($"Moving {ctx.ReadValue<Vector2>()}.");
         movementVector = ctx.ReadValue<Vector2>();
+        playerMovement.move_Controlled(movementVector);
     }
 
     private void playerPunchCombo_press()

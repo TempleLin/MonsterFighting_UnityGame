@@ -88,8 +88,8 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
     {
         if (centralKey != this.centralKey) return;
-        if (MF_SignInCompleteCheckCentral.getOtherByIdentity("CommanderInfo1").ICompleteCheck_Completed &&
-            MF_SignInCompleteCheckCentral.getOtherByIdentity("CommanderInfo2").ICompleteCheck_Completed)
+        if (MF_SignInCompleteCheckCentral._ICompleteCheck_CheckSignedInAndComplete("CommanderInfo1") &&
+            MF_SignInCompleteCheckCentral._ICompleteCheck_CheckSignedInAndComplete("CommanderInfo2"))
         {
             _ICompleteCheck_Completed = true;
         }

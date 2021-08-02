@@ -10,7 +10,7 @@ public class MF_CommanderInfo : MonoBehaviour, MF_IInfo, MF_ISignInCompleteCheck
     private bool _ICompleteCheck_Completed = false;
     public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
     private static int sameTypeIdentityCount = 0;
-    private string _ICompleteCheck_Identity;
+    private string _ICompleteCheck_Identity = "CommanderInfo" + sameTypeIdentityCount++;
     public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
     private int centralKey;
 
@@ -34,9 +34,6 @@ public class MF_CommanderInfo : MonoBehaviour, MF_IInfo, MF_ISignInCompleteCheck
     // Gets called from LocalManager or NetworkManager.
     public void infoInit(ref MF_ECommanderType commanderType, ref GameObject enemy, ref InputActionMap inputActionMap)
     {
-        sameTypeIdentityCount++;
-        _ICompleteCheck_Identity = "CommanderInfo" + sameTypeIdentityCount.ToString();
-        Debug.Log(_ICompleteCheck_Identity);
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
         
         this.commanderType = commanderType;

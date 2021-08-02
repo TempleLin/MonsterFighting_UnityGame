@@ -29,12 +29,30 @@ public class MF_SignInCompleteCheckCentral
         {
             //TODO Add throw exception
             Debug.LogWarning($"{identity} is not registered.");
-            throw;
+            return null;
         }
     }
 
     public static void _ICompleteCheck_CheckOthers_Run_MarkCallerComplete(Action<int> callbackWithCentralKey)
     {
         callbackWithCentralKey(MF_SignInCompleteCheckCentral.centralKey);
+    }
+
+    public static bool _ICompleteCheck_CheckSignedInAndComplete(string _identity)
+    {
+        if (getOtherByIdentity(_identity) != null && getOtherByIdentity(_identity).ICompleteCheck_Completed)
+            return true;
+        return false;
+    }
+
+    public static void _ICompleteCheck_WaitForComplete(string _identity)
+    {
+        int waitTimeCounter = 0;
+        while (!_ICompleteCheck_CheckSignedInAndComplete(_identity) && waitTimeCounter < 50000)
+        {
+            waitTimeCounter++;
+        }
+        if (waitTimeCounter >= 50000)
+            Debug.LogWarning("Wait time over.");
     }
 }

@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 3057204518677296528}
   - component: {fileID: 655542104362989752}
   - component: {fileID: 8625324560743889587}
-  - component: {fileID: 8766218590316091738}
+  - component: {fileID: 3483071394826943270}
   m_Layer: 0
   m_Name: Commander
   m_TagString: Player
@@ -280,7 +280,7 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolateScale: 1
   syncScale: 1
---- !u!114 &8766218590316091738
+--- !u!114 &3483071394826943270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5b9a3a068df8040be117e28a2f5bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  inputsBind: {fileID: 0}
 --- !u!1 &6394623093474351566
 GameObject:
   m_ObjectHideFlags: 0

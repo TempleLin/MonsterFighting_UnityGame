@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MF_PlayerMainControl : MonoBehaviour
+public class MF_PlayerManager : MonoBehaviour
 {
     [SerializeField] private MF_PlayerMovement playerMovement;
     [SerializeField] private MF_PlayerInputsBind inputsBind;

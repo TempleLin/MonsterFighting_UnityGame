@@ -37,7 +37,7 @@ namespace MF_NSettings
         {
             MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
 
-            MF_EGameType tempGameType = MF_EGameType.LocalPVP;
+            MF_EGameType tempGameType = MF_EGameType.LocalPVAI;
             MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
             InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
             //TODO Remove this calling and call it from Commander's active setting.

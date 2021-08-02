@@ -18,8 +18,7 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
     
     [SerializeField] private MF_GameSettings gameSettings;
 
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private GameObject _AIPrefab;
+    [SerializeField] private GameObject commanderPrefab;
 
     [Space(20)]
     [SerializeField] private Transform spawnPoint1;
@@ -47,19 +46,16 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
                 gameObject.SetActive(false);
                 break;
             case MF_EGameType.LocalPVP:
-                instantiatePrefabs(new GameObject[2]{playerPrefab, playerPrefab});
-                registerCommanders();
-                break;
             case MF_EGameType.LocalPVAI:
-                instantiatePrefabs(new GameObject[2]{playerPrefab, _AIPrefab});
+                instantiatePrefabs();
                 registerCommanders();
                 break;
         }
 
-        void instantiatePrefabs(GameObject[] prefabs)
+        void instantiatePrefabs()
         {
-            instantiateds[0] = Instantiate(prefabs[0], spawnPoint1.position, Quaternion.identity);
-            instantiateds[1] = Instantiate(prefabs[1], spawnPoint2.position, Quaternion.identity);
+            instantiateds[0] = Instantiate(commanderPrefab, spawnPoint1.position, Quaternion.identity);
+            instantiateds[1] = Instantiate(commanderPrefab, spawnPoint2.position, Quaternion.identity);
             _cameraMultiTarget.SetTargets(instantiateds);
         }
 
@@ -73,7 +69,7 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
                     instantiateds[0].GetComponent<MF_CommanderInfo>()),
                 new MF_InfoStation.RegisteredCommanders(ref gameSettings.commandersSettings[1].commanderType,
                     instantiateds[1], ref
-                    gameSettings.commandersSettings[0].inputActionMap,
+                    gameSettings.commandersSettings[1].inputActionMap,
                     instantiateds[1].GetComponent<MF_CommanderInfo>())
             };
 

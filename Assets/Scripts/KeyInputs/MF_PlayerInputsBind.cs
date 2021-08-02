@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
+public class MF_PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
 {
     private static int sameTypeIdentityCount = 0;
     private string _ICompleteCheck_Identity;
@@ -21,6 +21,7 @@ public class PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
     private MF_CommanderBattle commanderBattle;
 
     private Vector2 movementVector;
+    public Vector2 MovementVector => movementVector;
 
     private bool playerMovementHeld = false;
 

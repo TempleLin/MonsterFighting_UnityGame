@@ -19,6 +19,8 @@ public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
     {
         MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete(GetComponent<MF_CommanderInfo>().ICompleteCheck_Identity);
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
+        
+        // TODO Needs to add modification code to decide whether turn the gameObject into a player or an AI
         playerMovement = GetComponent<MF_PlayerMovement>();
         inputsBind = GetComponent<MF_PlayerInputsBind>();
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);

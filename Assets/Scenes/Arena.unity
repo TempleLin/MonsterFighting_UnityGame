@@ -741,12 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d534580808017408a61fe4b1bf2e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midPoint: {fileID: 0}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  rotateSpeed: 3
-  mainTarget: {fileID: 0}
 --- !u!1 &1323855427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,8 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 1045976542}
-  playerPrefab: {fileID: 1499458016898699233, guid: 19964734fd2cc214489645a8eef115ff, type: 3}
-  _AIPrefab: {fileID: 5167240950050604723, guid: 1330be0e4d0839645a903b95d9e58e74, type: 3}
+  commanderPrefab: {fileID: 1499458016898699233, guid: 19964734fd2cc214489645a8eef115ff, type: 3}
   spawnPoint1: {fileID: 2111274878}
   spawnPoint2: {fileID: 1622436680}
 --- !u!1 &1758906191

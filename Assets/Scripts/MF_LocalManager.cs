@@ -32,6 +32,12 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
     {
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, ICompleteCheck_SignedIn, ref centralKey);
 
+        // Get the prefab if it isn't assigned (Shouldn't need this statement, but it's a weird bug.)
+        if (commanderPrefab == null)
+        {
+            commanderPrefab = Resources.Load<GameObject>("Prefabs/MF_Commander");
+        }
+        
         _cameraMultiTarget = MF_InfoStation.info.battlingCamera.GetComponent<CameraMultiTarget>();
         instantiateRegisterCommanders();
 

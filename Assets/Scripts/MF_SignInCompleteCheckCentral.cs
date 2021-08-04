@@ -14,6 +14,8 @@ public class MF_SignInCompleteCheckCentral
     public static void getCalledToSignIn(ref string identity, MF_ISignInCompleteCheck _MF_ISignInCompleteCheck, ValueWrapper<bool> _ICompleteCheck_SignedIn, ref int _centralKey)
     {
         Debug.Log($"{identity} signed in.");
+        if (identity == null)
+            Debug.LogWarning($"Signed identity is null, signer: {_MF_ISignInCompleteCheck}");
         signedInCompleteChecks.Add(identity, _MF_ISignInCompleteCheck);
         _centralKey = centralKey; 
         _ICompleteCheck_SignedIn.Value = true;

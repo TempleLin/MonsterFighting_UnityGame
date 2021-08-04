@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MF_NSettings;
+using Mirror;
 using UnityEngine;
 
 public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
@@ -29,8 +30,14 @@ public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
         {
             case MF_ECommanderType.Player1:
             case MF_ECommanderType.Player2:
+                gameObject.AddComponent<MF_PlayerMovement>();
+                gameObject.AddComponent<MF_CommanderPlayerControl>();
+                Destroy(GetComponent<NetworkTransform>());
+                Destroy(GetComponent<NetworkIdentity>());
                 break;
             case MF_ECommanderType.AI:
+                gameObject.AddComponent<MF_AIMovement>();
+                gameObject.AddComponent<MF_CommanderAIControl>();
                 break;
         }
     }

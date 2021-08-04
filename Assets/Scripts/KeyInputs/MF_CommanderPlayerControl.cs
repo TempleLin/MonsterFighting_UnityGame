@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MF_CommanderPlayerControl : MonoBehaviour, MF_ISignInCompleteCheck
+public class MF_CommanderPlayerControl : MF_PCommanderControl, MF_ISignInCompleteCheck
 {
     private static int sameTypeIdentityCount = 0;
     private string _ICompleteCheck_Identity = "PlayerCommanderControl" + sameTypeIdentityCount++;
@@ -13,19 +13,12 @@ public class MF_CommanderPlayerControl : MonoBehaviour, MF_ISignInCompleteCheck
     public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
     private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
     public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
-    private int sameTypeIdentityOrder = 0;
-    public int SameTypeIdentityOrder => sameTypeIdentityOrder;
     private int centralKey;
     
     [SerializeField] private InputActionMap inputActionMap;
     private MF_CommanderInfo commanderInfo;
     private MF_PlayerMovement playerMovement;
     private MF_CommanderBattle commanderBattle;
-
-    private Vector2 movementVector;
-    public Vector2 MovementVector => movementVector;
-
-    private bool playerMovementHeld = false;
 
     private void Start()
     {
@@ -65,7 +58,8 @@ public class MF_CommanderPlayerControl : MonoBehaviour, MF_ISignInCompleteCheck
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
     {
         // Wait for LocalManager to complete assigning everything to player.
-        MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete("LocalManager");
+        MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete("CommanderInfo1");
+        MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete("CommanderInfo2");
 
         inputActionMap = commanderInfo.InputActionMap;
         inputActionMap.Enable();

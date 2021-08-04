@@ -104,12 +104,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499458016898699234}
-  - component: {fileID: 557432560}
   - component: {fileID: 557432561}
   - component: {fileID: 6605513732993519309}
   - component: {fileID: 2364858904488255934}
-  - component: {fileID: 27694268418066701}
-  - component: {fileID: 3057204518677296528}
   - component: {fileID: 655542104362989752}
   - component: {fileID: 8625324560743889587}
   - component: {fileID: 3483071394826943270}
@@ -137,20 +134,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &557432560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499458016898699233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dfc917587966aa4095a827a8e84540e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.08
-  navMeshAgent: {fileID: 0}
 --- !u!114 &557432561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,38 +192,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &27694268418066701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499458016898699233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 910bac489b2deb84ebc9569aa05a4080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionMap:
-    m_Name: Input
-    m_Id: 5dbdf9bf-ce19-47ab-9c59-91eff1d3ac0f
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
---- !u!136 &3057204518677296528
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499458016898699233}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &655542104362989752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5b9a3a068df8040be117e28a2f5bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commanderPlayerControl: {fileID: 0}
+  commanderInfo: {fileID: 0}
 --- !u!114 &8326226568976944890
 MonoBehaviour:
   m_ObjectHideFlags: 0

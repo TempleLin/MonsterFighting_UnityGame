@@ -10,9 +10,14 @@ public class MF_PlayerMovement : MF_PMovement
     {
         if (moveValue == Vector2.zero)
         {
-            Debug.Log("Enemy: " + info.Enemy);
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                Quaternion.LookRotation(info.Enemy.transform.position - transform.position), 0.03f);
+            try
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                    Quaternion.LookRotation(info.Enemy.transform.position - transform.position), 0.03f);
+            }
+            catch (NullReferenceException e)
+            {
+            }
             return;
         }
 

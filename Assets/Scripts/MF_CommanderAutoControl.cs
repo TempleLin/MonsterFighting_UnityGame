@@ -30,10 +30,8 @@ public class MF_CommanderAutoControl : MonoBehaviour, MF_ISignInCompleteCheck
         movement.move_Controlled(commanderControl.MovementVector);
     }
 
-
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
     {
         MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete(GetComponent<MF_CommanderManager>().ICompleteCheck_Identity);
-
     }
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MF_PlayerInputsBind : MonoBehaviour, MF_ISignInCompleteCheck
+public class MF_PlayerCommanderControl : MonoBehaviour, MF_ISignInCompleteCheck
 {
     private static int sameTypeIdentityCount = 0;
-    private string _ICompleteCheck_Identity = "PlayerInputsBind" + sameTypeIdentityCount++;
+    private string _ICompleteCheck_Identity = "PlayerCommanderControl" + sameTypeIdentityCount++;
     public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
     private bool _ICompleteCheck_Completed = false;
     public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;

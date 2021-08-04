@@ -40,7 +40,11 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
         if (info == null)
             info = GetComponent<MF_InfoStation>();
         else
+        {
             Destroy(this);
+            Debug.Log("More than one MF_InfoStation.");
+            Debug.Break();
+        }
     }
 
     private void Start()

@@ -18,7 +18,8 @@ public static class MF_CodeStructure
      */
     
     /*
-     * "_Controlled" in the end of method name means it gets called from class that ends with "Control". "pas" means it gets called from other
+     * @"_Controlled" in the end of method name means it gets called from class that ends with "Control". "pas" means it gets called from other
      * gameObjects.
+     * @MF_CommanderPlayerControl is being controlled by commander; MF_CommanderAutoControl is controlled automatically from script.
      */
 }

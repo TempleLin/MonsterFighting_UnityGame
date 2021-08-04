@@ -14,7 +14,7 @@ public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
     private int centralKey;
     
     [SerializeField] private MF_PlayerMovement playerMovement;
-    [SerializeField] private MF_PlayerCommanderControl commanderControl;
+    [SerializeField] private MF_CommanderPlayerControl commanderPlayerControl;
     void Start()
     {
         MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete(GetComponent<MF_CommanderInfo>().ICompleteCheck_Identity);
@@ -22,13 +22,13 @@ public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
         
         // TODO Needs to add modification code to decide whether turn the gameObject into a player or an AI
         playerMovement = GetComponent<MF_PlayerMovement>();
-        commanderControl = GetComponent<MF_PlayerCommanderControl>();
+        commanderPlayerControl = GetComponent<MF_CommanderPlayerControl>();
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
     }
     
     void Update()
     {
-        playerMovement.move_Controlled(commanderControl.MovementVector);
+        playerMovement.move_Controlled(commanderPlayerControl.MovementVector);
     }
 
 

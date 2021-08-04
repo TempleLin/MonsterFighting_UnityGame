@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MF_PlayerCommanderControl : MonoBehaviour, MF_ISignInCompleteCheck
+public class MF_CommanderPlayerControl : MonoBehaviour, MF_ISignInCompleteCheck
 {
     private static int sameTypeIdentityCount = 0;
     private string _ICompleteCheck_Identity = "PlayerCommanderControl" + sameTypeIdentityCount++;

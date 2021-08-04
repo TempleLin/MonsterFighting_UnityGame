@@ -24,6 +24,5 @@ public class MF_PlayerMovement : MF_PMovement
         Vector3 movement = new Vector3(moveValue.x * moveSpeed, 0, moveValue.y * moveSpeed);
         navMeshAgent.Move(movement);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.03f);
-        Debug.Log("Move");
     }
 }

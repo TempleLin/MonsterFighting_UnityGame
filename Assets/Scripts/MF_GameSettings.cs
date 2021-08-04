@@ -25,14 +25,17 @@ namespace MF_NSettings
 
         private bool _ICompleteCheck_Completed = false;
         private string _ICompleteCheck_Identity = "CommandersSettings";
-        public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
-        private int centralKey;
-        public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
         private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
-        public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
+        private int centralKey;
 
+        //TODO Remove this temporary variable when finished.
         public InputActionAsset tempInputActionAsset;
         
+        public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
+        public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
+        public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
+        
+
         private void Start()
         {
             MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);

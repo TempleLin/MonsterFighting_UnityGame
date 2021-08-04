@@ -18,22 +18,24 @@ public enum MF_EGameType
 
 public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
 {
+    // Access this component by this variable. (Similar to Singleton)
+    private static MF_InfoStation info;
+    public static MF_InfoStation Info => info;
+    
     public Camera battlingCamera;
 
     public List<RegisteredCommanders> registeredCommandersShowBoard;
     public ReadOnlyCollection<RegisteredCommanders> registeredCommanders;
 
-    // Access this component by this variable. (Similar to Singleton)
-    private static MF_InfoStation info;
-    public static MF_InfoStation Info => info;
-
     private string _ICompleteCheck_Identity = "InfoStation";
-    public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
     private bool _ICompleteCheck_Completed = false;
-    public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
     private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
-    public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
     private int centralKey;
+    
+    public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
+    public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
+    public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
+
 
     private void Awake()
     {

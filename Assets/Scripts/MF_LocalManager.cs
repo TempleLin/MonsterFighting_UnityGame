@@ -8,25 +8,22 @@ using UnityEngine;
 public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
 {
     private bool _ICompleteCheck_Completed = false;
-    public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
     private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
-    public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
     private string _ICompleteCheck_Identity = "LocalManager";
-    public string ICompleteCheck_Identity  => _ICompleteCheck_Identity;
     private int centralKey;
-    
-    
+
     [SerializeField] private MF_GameSettings gameSettings;
-
     [SerializeField] private GameObject commanderPrefab;
-
     [Space(20)]
     [SerializeField] private Transform spawnPoint1;
     [SerializeField] private Transform spawnPoint2;
 
     private GameObject[] instantiateds = new GameObject[2];
-
     private CameraMultiTarget _cameraMultiTarget;
+    
+    public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
+    public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
+    public string ICompleteCheck_Identity  => _ICompleteCheck_Identity;
 
     void Start()
     {

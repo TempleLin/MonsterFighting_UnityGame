@@ -5,11 +5,10 @@ using UnityEngine;
 public class MF_CommanderBattle : MonoBehaviour, MF_IAttacks, MF_IReceives
 {
     [SerializeField] private int punchComboMax = 3;
-    private int punchComboIndex = 0;
-    public int PunchComboIndex => punchComboIndex;
-
     [SerializeField] private int kickComboMax = 3;
-    private int kickComboIndex = 0;
+    [SerializeField] private int punchComboIndex = 0;
+    [SerializeField] private int kickComboIndex = 0;
+    public int PunchComboIndex => punchComboIndex;
     public int KickComboIndex => kickComboIndex;
 
     private delegate void combos();

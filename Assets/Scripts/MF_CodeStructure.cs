@@ -10,7 +10,7 @@ public static class MF_CodeStructure
      * @LocalManager and NetworkManager gameobjects with be the ones setting MF_InfoStation through MF_GameSettings.
      * @Players or AI prefab are spawned by LocalManager and NetworkManager.
      * @Information the commanders can get are accessed through MF_InfoStation, not MF_GameSettings.
-     * @MF_CommanderInfo is the only info in spawned prefab that receives information set by Manager.
+     * @MF_CommanderInfo is the only info in spawned prefab that receives information set by LocalManager or NetworkManager.
      *
      * @MF_SignInCompleteCheckCentral is a design pattern that acts as a central for components to inherit MF_ISignInCompleteCheck interface
      * and sign in to this central on code start, and can know when other component that have signed this interface has completed its code
@@ -21,5 +21,6 @@ public static class MF_CodeStructure
      * @"_Controlled" in the end of method name means it gets called from class that ends with "Control". "pas" means it gets called from other
      * gameObjects.
      * @MF_CommanderPlayerControl is being controlled by commander; MF_CommanderAutoControl is controlled automatically from script.
+     * @MF_CommanderInfo contains all information set from InfoStation that can be fetched and used by MF_CommanderManager.
      */
 }

@@ -24,7 +24,8 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
     public ReadOnlyCollection<RegisteredCommanders> registeredCommanders;
 
     // Access this component by this variable. (Similar to Singleton)
-    public static MF_InfoStation info;
+    private static MF_InfoStation info;
+    public static MF_InfoStation Info => info;
 
     private string _ICompleteCheck_Identity = "InfoStation";
     public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
@@ -36,7 +37,10 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
 
     private void Awake()
     {
-        info = GetComponent<MF_InfoStation>();
+        if (info == null)
+            info = GetComponent<MF_InfoStation>();
+        else
+            Destroy(this);
     }
 
     private void Start()

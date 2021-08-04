@@ -38,7 +38,7 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
             commanderPrefab = Resources.Load<GameObject>("Prefabs/MF_Commander");
         }
         
-        _cameraMultiTarget = MF_InfoStation.info.battlingCamera.GetComponent<CameraMultiTarget>();
+        _cameraMultiTarget = MF_InfoStation.Info.battlingCamera.GetComponent<CameraMultiTarget>();
         instantiateRegisterCommanders();
 
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
@@ -67,7 +67,7 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
 
         void registerCommanders()
         {
-            MF_InfoStation.info.registeredCommandersShowBoard = new List<MF_InfoStation.RegisteredCommanders>()
+            MF_InfoStation.Info.registeredCommandersShowBoard = new List<MF_InfoStation.RegisteredCommanders>()
             {
                 new MF_InfoStation.RegisteredCommanders(ref gameSettings.commandersSettings[0].commanderType,
                     instantiateds[0], ref
@@ -79,15 +79,15 @@ public class MF_LocalManager : MonoBehaviour, MF_ISignInCompleteCheck
                     instantiateds[1].GetComponent<MF_CommanderInfo>())
             };
 
-            MF_InfoStation.info.registeredCommandersShowBoard[0].Info.infoInit(ref
+            MF_InfoStation.Info.registeredCommandersShowBoard[0].Info.infoInit(ref
                 gameSettings.commandersSettings[0].commanderType, ref instantiateds[1], ref
                 gameSettings.commandersSettings[0].inputActionMap);
-            MF_InfoStation.info.registeredCommandersShowBoard[1].Info.infoInit(ref
+            MF_InfoStation.Info.registeredCommandersShowBoard[1].Info.infoInit(ref
                 gameSettings.commandersSettings[1].commanderType, ref instantiateds[0], ref
                 gameSettings.commandersSettings[1].inputActionMap);
         
-            MF_InfoStation.info.registeredCommanders =
-                new ReadOnlyCollection<MF_InfoStation.RegisteredCommanders>(MF_InfoStation.info.registeredCommandersShowBoard);
+            MF_InfoStation.Info.registeredCommanders =
+                new ReadOnlyCollection<MF_InfoStation.RegisteredCommanders>(MF_InfoStation.Info.registeredCommandersShowBoard);
         }
     }
 

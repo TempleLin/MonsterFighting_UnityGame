@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MF_NSettings;
 using UnityEngine;
 
 public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
@@ -13,33 +14,39 @@ public class MF_CommanderManager : MonoBehaviour, MF_ISignInCompleteCheck
     public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
     private int centralKey;
     
-    [SerializeField] private MF_PlayerMovement playerMovement;
-    [SerializeField] private MF_CommanderPlayerControl commanderPlayerControl;
+    [SerializeField] private MF_CommanderInfo commanderInfo;
+    
     void Start()
     {
-        MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete(GetComponent<MF_CommanderInfo>().ICompleteCheck_Identity);
         MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
-        
-        // TODO Needs to add modification code to decide whether turn the gameObject into a player or an AI
-        playerMovement = GetComponent<MF_PlayerMovement>();
-        commanderPlayerControl = GetComponent<MF_CommanderPlayerControl>();
         MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
     }
-    
-    void Update()
-    {
-        playerMovement.move_Controlled(commanderPlayerControl.MovementVector);
-    }
 
+    private void setCommanderComponents()
+    {
+        // TODO Needs to add modification code to decide whether turn the gameObject into a player or an AI
+        switch (commanderInfo.CommanderType)
+        {
+            case MF_ECommanderType.Player1:
+            case MF_ECommanderType.Player2:
+                break;
+            case MF_ECommanderType.AI:
+                break;
+        }
+    }
 
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
     {
         if (centralKey != this.centralKey)
         {
-            Debug.Log("Central key not right.");
+            Debug.LogWarning("Central key not right.");
             return;
         }
+        MF_SignInCompleteCheckCentral._ICompleteCheck_WaitForComplete(GetComponent<MF_CommanderInfo>().ICompleteCheck_Identity);
 
+        commanderInfo = GetComponent<MF_CommanderInfo>();
+        setCommanderComponents();
+        
         _ICompleteCheck_Completed = true;
     }
 }

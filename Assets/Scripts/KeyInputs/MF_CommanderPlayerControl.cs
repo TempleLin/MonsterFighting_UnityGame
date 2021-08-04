@@ -62,7 +62,6 @@ public class MF_CommanderPlayerControl : MonoBehaviour, MF_ISignInCompleteCheck
         commanderBattle.kickCombo_Controlled();
     }
 
-
     public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
     {
         // Wait for LocalManager to complete assigning everything to player.

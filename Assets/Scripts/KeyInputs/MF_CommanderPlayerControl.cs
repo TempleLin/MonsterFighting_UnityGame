@@ -5,20 +5,27 @@ public class MF_CommanderPlayerControl : MF_PCommanderSelfControl, MF_IStartByMa
 {
     [SerializeField] private InputActionMap inputActionMap;
 
-    [SerializeField] private MF_CommanderScriptComponentsLink otherScriptComponents;
-    
-
-    private void OnDisable()
+    private MF_CommanderScriptComponentsLink otherScriptComponents;
+    private MF_CommanderAutoControl commanderAutoControl;
+ 
+    public void startByManager()
     {
-        inputActionMap.Disable();
-    }
-    
+        otherScriptComponents = GetComponent<MF_CommanderScriptComponentsLink>();
+        commanderAutoControl = otherScriptComponents.CommanderAutoControl;
+
+        inputActionMap = otherScriptComponents.CommanderInfo.InputActionMap;
+        inputActionMap.Enable();
+        inputActionMap.actions[0].performed += ctx => playerMovement_Hold(ctx);
+        inputActionMap.actions[1].performed += _ => playerPunchCombo_press();
+        inputActionMap.actions[2].performed += _ => playerKickCombo_press();
+        //TODO Add more input controls performed
+    }   
+
     private void playerMovement_Hold(InputAction.CallbackContext ctx)
     {
         Debug.Log("Hold");
         Debug.Log($"Moving {ctx.ReadValue<Vector2>()}.");
-        movementVector = ctx.ReadValue<Vector2>();
-        otherScriptComponents.Movement.move_Controlled(movementVector);
+        commanderAutoControl.MovementVector = ctx.ReadValue<Vector2>();
     }
 
     private void playerPunchCombo_press()
@@ -30,16 +37,10 @@ public class MF_CommanderPlayerControl : MF_PCommanderSelfControl, MF_IStartByMa
     {
         otherScriptComponents.CommanderBattle.kickCombo_Controlled();
     }
-
-    public void startByManager()
+    
+    private void OnDisable()
     {
-        otherScriptComponents = GetComponent<MF_CommanderScriptComponentsLink>();
-
-        inputActionMap = otherScriptComponents.CommanderInfo.InputActionMap;
-        inputActionMap.Enable();
-        inputActionMap.actions[0].performed += ctx => playerMovement_Hold(ctx);
-        inputActionMap.actions[1].performed += _ => playerPunchCombo_press();
-        inputActionMap.actions[2].performed += _ => playerKickCombo_press();
-        //TODO Add more input controls performed
+        inputActionMap.Disable();
     }
+
 }

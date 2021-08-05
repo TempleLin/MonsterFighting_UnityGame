@@ -28,9 +28,9 @@ namespace MF_NSettings
         private void Start()
         {
             MF_EGameType tempGameType = MF_EGameType.LocalPVAI;
-            MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
-            InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
-            int[] tempHealths = new[] {10000, 20000};
+            MF_EControlType[] tempControlTypes = { MF_EControlType.Keyboard, MF_EControlType.Xbox };
+            InputActionMap[] tempInputActionMaps = { new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle };
+            int[] tempHealths = new[] { 10000, 20000 };
             //TODO Remove this calling and call it from Commander's active setting.
             receiveSettings_pas(ref tempGameType, ref tempControlTypes, ref tempInputActionMaps, tempHealths);
         }

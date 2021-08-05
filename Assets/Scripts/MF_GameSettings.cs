@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using MF_NSettings.MF_NKeyInputs;
 using UnityEngine.InputSystem;
@@ -32,8 +30,9 @@ namespace MF_NSettings
             MF_EGameType tempGameType = MF_EGameType.LocalPVP;
             MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
             InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
+            int[] tempHealths = new[] {10000, 20000};
             //TODO Remove this calling and call it from Commander's active setting.
-            receiveGameSettings_pas(ref tempGameType, ref tempControlTypes, ref tempInputActionMaps);
+            receiveSettings_pas(ref tempGameType, ref tempControlTypes, ref tempInputActionMaps, tempHealths);
         }
 
         [Serializable]
@@ -43,34 +42,36 @@ namespace MF_NSettings
             public MF_EControlType controlType;
 
             public InputActionMap inputActionMap;
+            public int health;
 
-            public CommanderSettings(MF_ECommanderType commanderType, ref MF_EControlType controlType, ref InputActionMap inputActionMap)
+            public CommanderSettings(MF_ECommanderType commanderType, ref MF_EControlType controlType, ref InputActionMap inputActionMap, int health)
             {
                 this.commanderType = commanderType;
                 this.controlType = controlType;
                 this.inputActionMap = inputActionMap;
+                this.health = health;
             }
         }
 
         //InputActionMap and controlTypes might change during in-game player settings. Passing them by array can contain reference to commander's settings.
         //MF_EGameType does not need to change.
-        public void receiveGameSettings_pas(ref MF_EGameType gameType, ref MF_EControlType[] controlTypes, ref InputActionMap[] inputActionMaps)
+        public void receiveSettings_pas(ref MF_EGameType gameType, ref MF_EControlType[] controlTypes, ref InputActionMap[] inputActionMaps, int[] healths)
         {
             this.gameType = gameType;
-            selfSetGameSettings_act(ref gameType, ref controlTypes, ref inputActionMaps);
+            selfSetSettings_act(ref gameType, ref controlTypes, ref inputActionMaps, healths);
         }
 
-        private void selfSetGameSettings_act(ref MF_EGameType gameType, ref MF_EControlType[] controlTypes, ref InputActionMap[] inputActionMaps)
+        private void selfSetSettings_act(ref MF_EGameType gameType, ref MF_EControlType[] controlTypes, ref InputActionMap[] inputActionMaps, int[] healths)
         {
-            commandersSettings[0] = new CommanderSettings(MF_ECommanderType.Player1, ref controlTypes[0], ref inputActionMaps[0]);
+            commandersSettings[0] = new CommanderSettings(MF_ECommanderType.Player1, ref controlTypes[0], ref inputActionMaps[0], healths[0]);
             switch (gameType)
             {
                 case MF_EGameType.LocalPVP:
                 case MF_EGameType.NetworkPVP:
-                    commandersSettings[1] = new CommanderSettings(MF_ECommanderType.Player2, ref controlTypes[1], ref inputActionMaps[1]);
+                    commandersSettings[1] = new CommanderSettings(MF_ECommanderType.Player2, ref controlTypes[1], ref inputActionMaps[1], healths[1]);
                     break;
                 case MF_EGameType.LocalPVAI:
-                    commandersSettings[1] = new CommanderSettings(MF_ECommanderType.AI, ref controlTypes[1], ref inputActionMaps[1]);
+                    commandersSettings[1] = new CommanderSettings(MF_ECommanderType.AI, ref controlTypes[1], ref inputActionMaps[1], healths[1]);
                     break;
             }
         }

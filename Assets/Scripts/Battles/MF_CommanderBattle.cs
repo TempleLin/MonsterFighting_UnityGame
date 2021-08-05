@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MF_CommanderBattle : MonoBehaviour, MF_IAttacks, MF_IReceives

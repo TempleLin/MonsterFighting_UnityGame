@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public static class MF_CodeStructure
 {
@@ -19,5 +16,11 @@ public static class MF_CodeStructure
      * gameObjects.
      * @MF_CommanderPlayerControl is being controlled by commander; MF_CommanderAutoControl is controlled automatically from script.
      * @MF_CommanderInfo contains all information set from InfoStation that can be fetched and used by MF_CommanderManager.
+     */
+    
+    /*
+     * @Structure of the code: "Manager" always sets "Info" from "Setting" of the same hierarchy. 
+     * For example: LocalManager sets InfoStation from GameSettings;
+     * CommanderManager sets CommanderInfo from CommanderSettings.
      */
 }

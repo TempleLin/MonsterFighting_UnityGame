@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499458016898699234}
   - component: {fileID: 2364858904488255934}
+  - component: {fileID: 4589310741783401151}
   - component: {fileID: 557432561}
   - component: {fileID: 3483071394826943270}
   - component: {fileID: 655542104362989752}
@@ -154,6 +155,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4589310741783401151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499458016898699233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98704bc3a65c6464aa02baf58cd7d0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  commanderType: 0
+  inputActionMap:
+    m_Name: Input
+    m_Id: 9b6e919e-3959-425f-8272-4357d1ac61b6
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  enemy: {fileID: 0}
 --- !u!114 &557432561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commanderInfo: {fileID: 0}
+  commanderSettings: {fileID: 0}
 --- !u!114 &655542104362989752
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using MF_NSettings.MF_NKeyInputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MF_CommanderInfo : MonoBehaviour, MF_IInfo
+public class MF_CommanderInfo : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] private MF_ECommanderType commanderType;
@@ -21,12 +21,13 @@ public class MF_CommanderInfo : MonoBehaviour, MF_IInfo
 
 
     // Gets called from LocalManager or NetworkManager.
-    public void infoInit(ref MF_ECommanderType commanderType, ref GameObject enemy, ref InputActionMap inputActionMap)
+    public void infoInit(ref MF_ECommanderType commanderType, ref GameObject enemy, ref InputActionMap inputActionMap, int health)
     {
         this.commanderType = commanderType;
         //TODO Add NetworkPVP
         this.enemy = enemy;
 
         this.inputActionMap = inputActionMap;
+        this.health = health;
     }
 }

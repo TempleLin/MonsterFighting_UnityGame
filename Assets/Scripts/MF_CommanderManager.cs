@@ -1,19 +1,27 @@
-using System.Collections;
 using System.Collections.Generic;
 using MF_NSettings;
 using Mirror;
 using UnityEngine;
 
-public class MF_CommanderManager : MonoBehaviour
+public class MF_CommanderManager : MonoBehaviour, MF_IStartByManager
 {
     [SerializeField] private MF_CommanderInfo commanderInfo;
+    [SerializeField] private MF_CommanderSettings commanderSettings;
     private List<MF_IStartByManager> toStarts = new List<MF_IStartByManager>();
 
-    void Start()
+    public void startByManager()
     {
-        commanderInfo = GetComponent<MF_CommanderInfo>();
+        setInfoFromSettings();
         addRemoveCommanderComponents();
         startAllComponents();
+    }
+
+    private void setInfoFromSettings()
+    {
+        commanderInfo = GetComponent<MF_CommanderInfo>();
+        commanderSettings = GetComponent<MF_CommanderSettings>();
+        commanderInfo.infoInit(ref commanderSettings.commanderType, ref commanderSettings.enemy,
+            ref commanderSettings.inputActionMap, commanderSettings.health);
     }
 
     private void addRemoveCommanderComponents()
@@ -46,4 +54,5 @@ public class MF_CommanderManager : MonoBehaviour
             toStart.startByManager();
         }
     }
+
 }

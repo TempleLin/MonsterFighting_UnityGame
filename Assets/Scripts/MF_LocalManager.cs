@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MF_NSettings;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class MF_LocalManager : MonoBehaviour
@@ -26,6 +24,7 @@ public class MF_LocalManager : MonoBehaviour
         
         _cameraMultiTarget = MF_InfoStation.Info.battlingCamera.GetComponent<CameraMultiTarget>();
         instantiateRegisterCommanders();
+        startCommandersManagers();
     }
 
     private void instantiateRegisterCommanders()
@@ -63,15 +62,23 @@ public class MF_LocalManager : MonoBehaviour
                     instantiateds[1].GetComponent<MF_CommanderInfo>())
             };
 
-            MF_InfoStation.Info.registeredCommandersShowBoard[0].Info.infoInit(ref
-                gameSettings.commandersSettings[0].commanderType, ref instantiateds[1], ref
-                gameSettings.commandersSettings[0].inputActionMap);
-            MF_InfoStation.Info.registeredCommandersShowBoard[1].Info.infoInit(ref
-                gameSettings.commandersSettings[1].commanderType, ref instantiateds[0], ref
-                gameSettings.commandersSettings[1].inputActionMap);
+            MF_InfoStation.Info.registeredCommandersShowBoard[0].GameObject.GetComponent<MF_CommanderSettings>()
+                .receiveSettings_pas(ref
+                    gameSettings.commandersSettings[0].commanderType, ref instantiateds[1], ref
+                    gameSettings.commandersSettings[0].inputActionMap, gameSettings.commandersSettings[0].health);
+            MF_InfoStation.Info.registeredCommandersShowBoard[1].GameObject.GetComponent<MF_CommanderSettings>()
+                .receiveSettings_pas(ref
+                    gameSettings.commandersSettings[1].commanderType, ref instantiateds[0], ref
+                    gameSettings.commandersSettings[1].inputActionMap, gameSettings.commandersSettings[1].health);
         
             MF_InfoStation.Info.registeredCommanders =
                 new ReadOnlyCollection<MF_InfoStation.RegisteredCommanders>(MF_InfoStation.Info.registeredCommandersShowBoard);
         }
+    }
+
+    private void startCommandersManagers()
+    {
+        MF_InfoStation.Info.registeredCommandersShowBoard[0].GameObject.GetComponent<MF_CommanderManager>().startByManager();
+        MF_InfoStation.Info.registeredCommandersShowBoard[1].GameObject.GetComponent<MF_CommanderManager>().startByManager();
     }
 }

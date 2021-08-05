@@ -15,7 +15,7 @@ namespace MF_NSettings
         AI = 2
     }
 
-    public class MF_GameSettings : MonoBehaviour, MF_ISignInCompleteCheck
+    public class MF_GameSettings : MonoBehaviour
     {
         [Space(10)] public MF_EGameType gameType;
 
@@ -23,23 +23,12 @@ namespace MF_NSettings
         //TODO Add AI settings
         public CommanderSettings[] commandersSettings = new CommanderSettings[2];
 
-        private bool _ICompleteCheck_Completed = false;
-        private string _ICompleteCheck_Identity = "CommandersSettings";
-        private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
-        private int centralKey;
-
         //TODO Remove this temporary variable when finished.
         public InputActionAsset tempInputActionAsset;
-        
-        public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
-        public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
-        public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
-        
+
 
         private void Start()
         {
-            MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
-
             MF_EGameType tempGameType = MF_EGameType.LocalPVP;
             MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
             InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
@@ -84,15 +73,6 @@ namespace MF_NSettings
                     commandersSettings[1] = new CommanderSettings(MF_ECommanderType.AI, ref controlTypes[1], ref inputActionMaps[1]);
                     break;
             }
-            
-            MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
-        }
-
-        public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
-        {
-            if (centralKey != this.centralKey) return;
-            if (_ICompleteCheck_Completed) return;
-            _ICompleteCheck_Completed = true;
         }
     }
 }

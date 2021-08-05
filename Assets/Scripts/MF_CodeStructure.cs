@@ -12,9 +12,6 @@ public static class MF_CodeStructure
      * @Information the commanders can get are accessed through MF_InfoStation, not MF_GameSettings.
      * @MF_CommanderInfo is the only info in spawned prefab that receives information set by LocalManager or NetworkManager.
      *
-     * @MF_SignInCompleteCheckCentral is a design pattern that acts as a central for components to inherit MF_ISignInCompleteCheck interface
-     * and sign in to this central on code start, and can know when other component that have signed this interface has completed its code
-     * by accessing this central.
      */
     
     /*

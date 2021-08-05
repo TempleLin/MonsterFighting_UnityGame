@@ -16,7 +16,7 @@ public enum MF_EGameType
     LocalPVAI
 }
 
-public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
+public class MF_InfoStation : MonoBehaviour
 {
     // Access this component by this variable. (Similar to Singleton)
     private static MF_InfoStation info;
@@ -26,16 +26,6 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
 
     public List<RegisteredCommanders> registeredCommandersShowBoard;
     public ReadOnlyCollection<RegisteredCommanders> registeredCommanders;
-
-    private string _ICompleteCheck_Identity = "InfoStation";
-    private bool _ICompleteCheck_Completed = false;
-    private ValueWrapper<bool> _ICompleteCheck_SignedIn = new ValueWrapper<bool>(false);
-    private int centralKey;
-    
-    public string ICompleteCheck_Identity => _ICompleteCheck_Identity;
-    public bool ICompleteCheck_Completed => _ICompleteCheck_Completed;
-    public ValueWrapper<bool> ICompleteCheck_SignedIn => _ICompleteCheck_SignedIn;
-
 
     private void Awake()
     {
@@ -47,12 +37,6 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
             Debug.Log("More than one MF_InfoStation.");
             Debug.Break();
         }
-    }
-
-    private void Start()
-    {
-        MF_SignInCompleteCheckCentral.getCalledToSignIn(ref _ICompleteCheck_Identity, this, _ICompleteCheck_SignedIn, ref centralKey);
-        MF_SignInCompleteCheckCentral._ICompleteCheck_CheckOthers_Run_MarkCallerComplete(_ICompleteCheck_CentralCallBack_Check_Run_Complete);
     }
 
     [Serializable]
@@ -105,12 +89,5 @@ public class MF_InfoStation : MonoBehaviour, MF_ISignInCompleteCheck
         {
             
         }
-    }
-    
-    public void _ICompleteCheck_CentralCallBack_Check_Run_Complete(int centralKey)
-    {
-        if (centralKey != this.centralKey) return;
-        if (_ICompleteCheck_Completed) return;
-        _ICompleteCheck_Completed = true;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MF_CommanderAIControl : MonoBehaviour
+public class MF_CommanderAIControl : MonoBehaviour, MF_IStartByManager
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class MF_CommanderAIControl : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void startByManager()
+    {
+        throw new System.NotImplementedException();
     }
 }

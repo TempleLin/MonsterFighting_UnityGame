@@ -27,7 +27,7 @@ namespace MF_NSettings
 
         private void Start()
         {
-            MF_EGameType tempGameType = MF_EGameType.LocalPVP;
+            MF_EGameType tempGameType = MF_EGameType.LocalPVAI;
             MF_EControlType[] tempControlTypes = {MF_EControlType.Keyboard, MF_EControlType.Xbox};
             InputActionMap[] tempInputActionMaps = {new PlayerInputs().Player1Battle, new PlayerInputs().Player2Battle};
             int[] tempHealths = new[] {10000, 20000};

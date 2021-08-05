@@ -11,15 +11,20 @@ public class MF_CommanderManager : MonoBehaviour, MF_IStartByManager
 
     public void startByManager()
     {
+        getComponents();        
         setInfoFromSettings();
         addRemoveCommanderComponents();
         startAllComponents();
     }
 
-    private void setInfoFromSettings()
+    private void getComponents()
     {
         commanderInfo = GetComponent<MF_CommanderInfo>();
         commanderSettings = GetComponent<MF_CommanderSettings>();
+    }
+
+    private void setInfoFromSettings()
+    {
         commanderInfo.infoInit(ref commanderSettings.commanderType, ref commanderSettings.enemy,
             ref commanderSettings.inputActionMap, commanderSettings.health);
     }
@@ -29,7 +34,7 @@ public class MF_CommanderManager : MonoBehaviour, MF_IStartByManager
         gameObject.AddComponent<MF_CommanderBattle>();
         toStarts.Add(gameObject.AddComponent<MF_CommanderScriptComponentsLink>());   
         // TODO Needs to add modification code to decide whether turn the gameObject into a player or an AI
-        switch (commanderInfo.CommanderType)
+        switch (commanderSettings.commanderType)
         {
             case MF_ECommanderType.Player1:
             case MF_ECommanderType.Player2:

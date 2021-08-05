@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MF_CommanderAIControl : MonoBehaviour, MF_IStartByManager
+public class MF_CommanderAIControl : MF_PCommanderSelfControl, MF_IStartByManager
 {
     // Start is called before the first frame update
     void Start()

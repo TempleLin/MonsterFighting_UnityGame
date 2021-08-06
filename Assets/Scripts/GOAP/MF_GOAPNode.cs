@@ -66,11 +66,3 @@ public static class MF_GOAPNode
     // }
     
 }
-
-public class Test
-{
-    Test()
-    {
-        //GOAPNode.GoalNode<ETest> test = new GOAPNode.GoalNode<ETest>()
-    }
-}

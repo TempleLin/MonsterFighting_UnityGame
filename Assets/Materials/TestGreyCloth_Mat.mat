@@ -133,7 +133,7 @@ Material:
     - _IndirectLightMinColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
     - _OcclusionMapChannelMask: {r: 1, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _ShadowMapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowMapColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6784451327863079846

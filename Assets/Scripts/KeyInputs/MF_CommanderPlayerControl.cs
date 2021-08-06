@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,4 +45,21 @@ public class MF_CommanderPlayerControl : MF_PCommanderSelfControl, MF_IStartByMa
         inputActionMap.Disable();
     }
 
+    // return bool in hurtable (Not hurtable when on ground or blocking), also out bool in range 
+    private bool hurtable_InRange(out bool inRange)
+    {
+        //TODO Set canAttack_InRange method and check return value by judging from statuses.
+        //TODO Needs to add judgement about if enemy can dodge the attack.
+        
+        inRange = commanderAutoControl.EnemyInRange.Value;
+        List<MF_EStatus> statuses = otherScriptComponents.CommanderInfo.Statuses;
+        
+        for (int i = 0; i < statuses.Count; i++)
+        {
+            if (statuses[i] == MF_EStatus.Blocking || statuses[i] == MF_EStatus.OnGround)
+                return false;
+        }
+
+        return true;
+    }
 }

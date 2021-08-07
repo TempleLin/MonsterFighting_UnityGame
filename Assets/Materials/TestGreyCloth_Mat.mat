@@ -84,7 +84,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CelShadeMidPoint: 0.322
+    - _CelShadeMidPoint: 0.403
     - _CelShadeSoftness: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
